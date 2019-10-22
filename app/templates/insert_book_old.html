@@ -1,0 +1,33 @@
+
+{% comment %} {% extends "layout.html" %} {% endcomment %}
+
+{% block content %}
+
+{% if error %}
+    <p style="">ERROR: Insert a query item</p>
+{% endif %}
+
+<form action="." method="post">
+    {% csrf_token %}
+    <label for="title">Book Title</label> 
+    <input type="text" name="title"> 
+    <br>
+    <label for="date">Book Date</label> 
+    <input type="text" name="date"> 
+    <br>
+    <label for="authors">Book Authors</label> 
+    {% for author in authors %}
+    <input type="checkbox" name="author"{{author.id}} value={{ author.id }}> {{ author.name }} </input>
+    {% endfor %}
+    <br>
+    <label for="publisher">Book Publisher</label> 
+    <select>
+        {% for publisher in publishers %}
+        <option value={{publisher.id}}>{{ publisher.name }}</option>
+        {% endfor %}
+    </select>
+    <br>
+    <input type="Submit" name="Submit"> 
+</form>
+
+{% endblock %}

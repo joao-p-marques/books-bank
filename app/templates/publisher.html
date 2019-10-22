@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Publisher</title>
+</head>
+<body>
+
+<h1>Publisher</h1>
+
+<ul>
+    <li> {{ publisher.name }} </li>
+    <li> {{ publisher.city }} </li>
+    <li> {{ publisher.country }} </li>
+    <li> {{ publisher.website }} </li>
+    <li><h3>Publisher Books</h3></li>
+    {% for book in books %}
+        <li> <a href=" {% url 'book' book.id %} "> {{ book.title }} </a> </li>
+    {%  endfor %}
+</ul>
+</body>
+</html>

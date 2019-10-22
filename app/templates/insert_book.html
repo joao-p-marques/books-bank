@@ -1,0 +1,16 @@
+
+{% comment %} {% extends "layout.html" %} {% endcomment %}
+
+{% block content %}
+
+{% if error %}
+    <p style="">ERROR: Insert a query item</p>
+{% endif %}
+
+<form action="." method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="Submit" name="Submit"> 
+</form>
+
+{% endblock %}

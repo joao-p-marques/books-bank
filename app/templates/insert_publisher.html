@@ -1,0 +1,27 @@
+
+{% comment %} {% extends "layout.html" %} {% endcomment %}
+
+{% block content %}
+
+{% if error %}
+    <p style="">ERROR: Insert a query item</p>
+{% endif %}
+
+<form action="." method="post">
+    {% csrf_token %}
+    <label for="name">Publisher Name</label> 
+    <input type="text" name="name"> 
+    <br>
+    <label for="city">Publisher City</label> 
+    <input type="text" name="city"> 
+    <br>
+    <label for="country">Publisher Country</label>
+    <input type="text" name="country">
+    <br>
+    <label for="website">Publisher Website</label> 
+    <input type="text" name="website"> 
+    <br>
+    <input type="Submit" name="Submit"> 
+</form>
+
+{% endblock %}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Books List</title>
+</head>
+<body>
+
+    <h1>Books</h1>
+
+    {% if query %}
+    <p>Found {{ books|length }} book{{ books|pluralize }}</p>
+    {% else %}
+    {% endif %}
+
+    {% if books %}
+    <ul>
+        {% for book in books %}
+        <li> <a href=" {% url 'book' book.id %} "> {{ book.title }} </a> </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>No books found.</p>
+    {% endif %}
+
+</body>
+</html>

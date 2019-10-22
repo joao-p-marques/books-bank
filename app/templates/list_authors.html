@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Authors List</title>
+</head>
+<body>
+
+    <h1>Authors</h1>
+
+    {% if query %}
+    <p>Found {{ authors|length }} author{{ authors|pluralize }}</p>
+    {% else %}
+    {% endif %}
+
+    {% if authors %}
+    <ul>
+        {% for author in authors %}
+        <li> <a href=" {% url 'author' author.id %} "> {{ author.name }} </a> </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>No authors found.</p>
+    {% endif %}
+
+</body>
+</html>
